@@ -1,0 +1,16 @@
+const loadinsuree= async () => {
+  const response = await fetch(`${baseApiUrl}/graphql`, {
+    method: "post",
+    headers: apiHeaders(),
+    body: JSON.stringify({ "query": "{ insurees (offset: 0, first: 10){edges {node{lastName}}}}" }),
+  });
+  if (!response.ok) {
+    throw response;
+    
+  } else {
+    const { data } = await response.json();
+    console.log(data,"adnan new data")
+   
+   
+  }
+};
